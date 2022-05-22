@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: views/sideBarBtnsView.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: views/sideBarBtnsView.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { DEFAULT_PAGE_TYPE } from "../config.js";
+import mainView from "./mainView.js";
+import othersView from "./othersView.js";
+
+/**
+ * Handles the sidebar view.
+ */ //prettier-ignore
+class SideBarBtnView {
+  _settingsContainer = document.querySelector(".settings-container");
+  _parentEl = document.querySelector(".sidebar-lists-btn");
+  _sidebar = document.querySelector(".movie-sidebar-nav");
+  _navBtns = document.querySelectorAll(".nav-btn");
+  _icons = this._parentEl.querySelectorAll(".bx");
+  _menuBtn = document.querySelector(".menu-btn");
+
+  buttonPage = "home";
+
+  /**
+   * Attaches event listener to the main section.
+   * @param {function} handle - Function that controls what happens when button has been clicked.
+   */
+  addEventHandler(handle) {
+    this._parentEl.addEventListener("click", function (event) {
+      event.preventDefault();
+      handle(event);
+    });
+
+    this._sidebar.addEventListener("mouseover", this._shrinkSections);
+
+    this._sidebar.addEventListener("mouseleave", this._unShrinkSections.bind(this));
+
+    this._menuBtn.addEventListener("click", function () {
+      othersView.shrinkSections("add")
+      othersView.showOverlay('add')
+      othersView.expandSidebar("add")
+    });
+  }
+
+  _shrinkSections(type) {
+    othersView.shrinkSections("add");
+    othersView.showOverlay("add");
+  }
+
+  _unShrinkSections() {
+    if (this._settingsContainer.classList.contains("show")) return;
+
+    othersView.shrinkSections("remove");
+    othersView.showOverlay("remove");
+    othersView.expandSidebar("remove");
+  }
+
+  /**
+   * Updates the activated buttons.
+   * @param {string} btnType - Type of the button that has been clicked. 
+   */
+  updateBtn(btnType) {
+    this._icons.forEach((el) => {
+      const elParent = el.closest(".nav-btn");
+
+      if (btnType === "search-res") {
+        elParent.classList.remove("active");
+        elParent.querySelector(".bx").classList.remove("active");
+        return;
+      }
+
+      // Stops the function when pageType isn't home
+      if (elParent.dataset.page !== DEFAULT_PAGE_TYPE || !elParent) return;
+
+      elParent.classList.toggle("active");
+      elParent.querySelector(".bx").classList.toggle("active");
+    });
+  }
+
+  /**
+   * Activates the button that the user just clicked.
+   * @param {event} event - Event that fires when user clicked a button in the sidebar. 
+   */
+  renderActive(event) {
+    const btn = event.target.closest(".nav-btn");
+
+    if (!btn) return;
+
+    if (btn.dataset.typeBtn === "expand") {
+      othersView.expandSidebar("add");
+      return;
+    }
+
+    if (btn.dataset.page !== this.buttonPage) {
+      // Removes the active classes to all buttons
+      // except the btn that has been clicked
+      this._navBtns.forEach((el) => {
+        if (el !== btn) el.classList.remove("active");
+      });
+
+      this._icons.forEach((el) => {
+        el.classList.remove("active");
+      });
+
+      // Toggles active class to the buttons
+      btn.querySelector(".bx").classList.toggle("active");
+      btn.classList.toggle("active");
+    }
+    this.buttonPage = btn.dataset.page;
+  }
+}
+
+export default new SideBarBtnView();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="bookmarksView.html">bookmarksView</a></li><li><a href="cardZoomingView.html">cardZoomingView</a></li><li><a href="discoverMoviesView.html">discoverMoviesView</a></li><li><a href="expansionView.html">expansionView</a></li><li><a href="genreCardsView.html">genreCardsView</a></li><li><a href="mainView.html">mainView</a></li><li><a href="othersView.html">othersView</a></li><li><a href="paginationView.html">paginationView</a></li><li><a href="popularMoviesView.html">popularMoviesView</a></li><li><a href="popularTVsView.html">popularTVsView</a></li><li><a href="searchResultsView.html">searchResultsView</a></li><li><a href="settingsView.html">settingsView</a></li><li><a href="SideBarBtnView.html">SideBarBtnView</a></li><li><a href="trendingView.html">trendingView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#controlBookmarkBtn">controlBookmarkBtn</a></li><li><a href="global.html#controlBookmarks">controlBookmarks</a></li><li><a href="global.html#controlDiscoverMovies">controlDiscoverMovies</a></li><li><a href="global.html#controlExpandBackButton">controlExpandBackButton</a></li><li><a href="global.html#controlExpansionSection">controlExpansionSection</a></li><li><a href="global.html#controlGenreCards">controlGenreCards</a></li><li><a href="global.html#controlMovieCards">controlMovieCards</a></li><li><a href="global.html#controlMovieSection">controlMovieSection</a></li><li><a href="global.html#controlNavBtns">controlNavBtns</a></li><li><a href="global.html#controlPagination">controlPagination</a></li><li><a href="global.html#controlSearchResults">controlSearchResults</a></li><li><a href="global.html#controlSettings">controlSettings</a></li><li><a href="global.html#createDiscoverCards">createDiscoverCards</a></li><li><a href="global.html#createExpandPage">createExpandPage</a></li><li><a href="global.html#createGenreCards">createGenreCards</a></li><li><a href="global.html#createPageResults">createPageResults</a></li><li><a href="global.html#createSearchResults">createSearchResults</a></li><li><a href="global.html#getMovieTvData">getMovieTvData</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#loadDatas">loadDatas</a></li><li><a href="global.html#renderGenreCards">renderGenreCards</a></li><li><a href="global.html#saveData">saveData</a></li><li><a href="global.html#showExpandSection">showExpandSection</a></li><li><a href="global.html#unExpandSidebar">unExpandSidebar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun May 22 2022 08:12:21 GMT+0300 (GMT+03:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

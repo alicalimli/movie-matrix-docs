@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: views/settingsView.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: views/settingsView.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import othersView from "./othersView";
+
+/**
+ * Handles the transitions in the settings panel.
+ */ //prettier-ignore
+class settingsView {
+  _disableTransitionSetting = document.querySelector(".disable-transition-setting");
+  _disableZoomSetting = document.querySelector(".disable-zoom-setting");
+  _closeSettingsBtn = document.querySelector(".close-settings-btn");
+  _darkModeSetting = document.querySelector(".dark-mode-setting");
+  _cardZoomSetting = document.querySelector(".card-zoom-setting");
+  _settingsList = document.querySelector(".settings-lists");
+  _settingsBtn = document.querySelector(".sidebar-footer");
+
+  /**
+   * Attach event listeners in the settings and close settings button.
+   */
+  constructor() {
+    this._settingsBtn.addEventListener("click", this._openSettings);
+    this._closeSettingsBtn.addEventListener("click", this._closeSettings);
+  }
+
+  /**
+   * Attaches event listener to the main section.
+   * @param {function} handle - Function that controls what happens when button has been clicked.
+   */
+  addEventHandler(handle) {
+    this._settingsList.addEventListener("click", handle);
+  }
+
+  /**
+   * Toggles the button automatically when that button is already enabled in the user settings data.
+   * @param {Object} data - Object that contains the data's of the settings.
+   */
+  updateSettings(data) {
+    if (data.darkMode) {
+      this._darkModeSetting.classList.toggle("active");
+      document.body.classList.toggle("darkmode");
+    }
+    if (data.cardZooming) {
+      this._cardZoomSetting.classList.toggle("active");
+    }
+    if (data.disableTransitions) {
+      this._disableTransitionSetting.classList.toggle("active");
+      document.body.classList.toggle("disable-transitions");
+    }
+    if (data.enableZoom) {
+      this._disableZoomSetting.classList.toggle("active");
+      othersView.zoomEnabled = true;
+    }
+  }
+
+  /**
+   * Renders the transitions when opening the settings panel.
+   */
+  _openSettings() {
+    othersView.spinSettingsIcon("add");
+    othersView.expandSidebar("remove");
+    othersView.shrinkSections("add");
+    othersView.hideToolTip("hidden");
+    othersView.showSettings("add");
+    othersView.showOverlay("add");
+  }
+
+  /**
+   * Renders the transitions when closing the settings panel.
+   */
+  _closeSettings() {
+    othersView.spinSettingsIcon("remove");
+    othersView.shrinkSections("remove");
+    othersView.hideToolTip("visible");
+    othersView.showSettings("remove");
+    othersView.showOverlay("remove");
+  }
+}
+
+export default new settingsView();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="bookmarksView.html">bookmarksView</a></li><li><a href="cardZoomingView.html">cardZoomingView</a></li><li><a href="discoverMoviesView.html">discoverMoviesView</a></li><li><a href="expansionView.html">expansionView</a></li><li><a href="genreCardsView.html">genreCardsView</a></li><li><a href="mainView.html">mainView</a></li><li><a href="othersView.html">othersView</a></li><li><a href="paginationView.html">paginationView</a></li><li><a href="popularMoviesView.html">popularMoviesView</a></li><li><a href="popularTVsView.html">popularTVsView</a></li><li><a href="searchResultsView.html">searchResultsView</a></li><li><a href="settingsView.html">settingsView</a></li><li><a href="SideBarBtnView.html">SideBarBtnView</a></li><li><a href="trendingView.html">trendingView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#controlBookmarkBtn">controlBookmarkBtn</a></li><li><a href="global.html#controlBookmarks">controlBookmarks</a></li><li><a href="global.html#controlDiscoverMovies">controlDiscoverMovies</a></li><li><a href="global.html#controlExpandBackButton">controlExpandBackButton</a></li><li><a href="global.html#controlExpansionSection">controlExpansionSection</a></li><li><a href="global.html#controlGenreCards">controlGenreCards</a></li><li><a href="global.html#controlMovieCards">controlMovieCards</a></li><li><a href="global.html#controlMovieSection">controlMovieSection</a></li><li><a href="global.html#controlNavBtns">controlNavBtns</a></li><li><a href="global.html#controlPagination">controlPagination</a></li><li><a href="global.html#controlSearchResults">controlSearchResults</a></li><li><a href="global.html#controlSettings">controlSettings</a></li><li><a href="global.html#createDiscoverCards">createDiscoverCards</a></li><li><a href="global.html#createExpandPage">createExpandPage</a></li><li><a href="global.html#createGenreCards">createGenreCards</a></li><li><a href="global.html#createPageResults">createPageResults</a></li><li><a href="global.html#createSearchResults">createSearchResults</a></li><li><a href="global.html#getMovieTvData">getMovieTvData</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#loadDatas">loadDatas</a></li><li><a href="global.html#renderGenreCards">renderGenreCards</a></li><li><a href="global.html#saveData">saveData</a></li><li><a href="global.html#showExpandSection">showExpandSection</a></li><li><a href="global.html#unExpandSidebar">unExpandSidebar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun May 22 2022 08:12:21 GMT+0300 (GMT+03:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

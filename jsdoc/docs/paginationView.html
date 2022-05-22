@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: paginationView</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: paginationView</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>paginationView<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>Handle's the rendering of pagination buttons and the movie/tv show cards when a pagination button is clicked.</p>
+<p>Extends of <a href="mainView.html"><code>mainView</code></a></p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="paginationView"><span class="type-signature"></span>new paginationView<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="views_paginationView.js.html">views/paginationView.js</a>, <a href="views_paginationView.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="_generateNumPageBtnsAfter"><span class="type-signature"></span>_generateNumPageBtnsAfter<span class="signature">(lastPage)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Generates pagination buttons that comes after the current page.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>lastPage</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The last page of the page.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="views_paginationView.js.html">views/paginationView.js</a>, <a href="views_paginationView.js.html#line103">line 103</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Generated pagination buttons.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="_generateNumPageBtnsBefore"><span class="type-signature"></span>_generateNumPageBtnsBefore<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Generates pagination buttons that comes before the current page.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="views_paginationView.js.html">views/paginationView.js</a>, <a href="views_paginationView.js.html#line81">line 81</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Generated pagination buttons.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="buttonClicked"><span class="type-signature"></span>buttonClicked<span class="signature">(event)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Sets the page number and the button type of which user clicked.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">event</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Event that fires when pagination button has been clicked.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="views_paginationView.js.html">views/paginationView.js</a>, <a href="views_paginationView.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="bookmarksView.html">bookmarksView</a></li><li><a href="cardZoomingView.html">cardZoomingView</a></li><li><a href="discoverMoviesView.html">discoverMoviesView</a></li><li><a href="expansionView.html">expansionView</a></li><li><a href="genreCardsView.html">genreCardsView</a></li><li><a href="mainView.html">mainView</a></li><li><a href="othersView.html">othersView</a></li><li><a href="paginationView.html">paginationView</a></li><li><a href="popularMoviesView.html">popularMoviesView</a></li><li><a href="popularTVsView.html">popularTVsView</a></li><li><a href="searchResultsView.html">searchResultsView</a></li><li><a href="settingsView.html">settingsView</a></li><li><a href="SideBarBtnView.html">SideBarBtnView</a></li><li><a href="trendingView.html">trendingView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#controlBookmarkBtn">controlBookmarkBtn</a></li><li><a href="global.html#controlBookmarks">controlBookmarks</a></li><li><a href="global.html#controlDiscoverMovies">controlDiscoverMovies</a></li><li><a href="global.html#controlExpandBackButton">controlExpandBackButton</a></li><li><a href="global.html#controlExpansionSection">controlExpansionSection</a></li><li><a href="global.html#controlGenreCards">controlGenreCards</a></li><li><a href="global.html#controlMovieCards">controlMovieCards</a></li><li><a href="global.html#controlMovieSection">controlMovieSection</a></li><li><a href="global.html#controlNavBtns">controlNavBtns</a></li><li><a href="global.html#controlPagination">controlPagination</a></li><li><a href="global.html#controlSearchResults">controlSearchResults</a></li><li><a href="global.html#controlSettings">controlSettings</a></li><li><a href="global.html#createDiscoverCards">createDiscoverCards</a></li><li><a href="global.html#createExpandPage">createExpandPage</a></li><li><a href="global.html#createGenreCards">createGenreCards</a></li><li><a href="global.html#createPageResults">createPageResults</a></li><li><a href="global.html#createSearchResults">createSearchResults</a></li><li><a href="global.html#getMovieTvData">getMovieTvData</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#loadDatas">loadDatas</a></li><li><a href="global.html#renderGenreCards">renderGenreCards</a></li><li><a href="global.html#saveData">saveData</a></li><li><a href="global.html#showExpandSection">showExpandSection</a></li><li><a href="global.html#unExpandSidebar">unExpandSidebar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun May 22 2022 08:12:21 GMT+0300 (GMT+03:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
